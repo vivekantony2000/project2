@@ -5,6 +5,8 @@
  */
 package com.employee.security;
 
+import static com.employee.security.AccessTokenUserDetailsService.PURPOSE_ACCESS_TOKEN;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +18,7 @@ import org.springframework.security.web.authentication.preauth.AbstractPreAuthen
  */
 public class AccessTokenProcessingFilter extends AbstractPreAuthenticatedProcessingFilter {
 
-    private static final Pattern AUTH_PATTERN = Pattern.compile("Contacts ([0-9a-f]+)");
+    private static final Pattern AUTH_PATTERN = Pattern.compile("Employee ([0-9a-f]+)");
 
     @Override
     protected Object getPreAuthenticatedPrincipal(HttpServletRequest request) {
@@ -35,6 +37,6 @@ public class AccessTokenProcessingFilter extends AbstractPreAuthenticatedProcess
 
     @Override
     protected Object getPreAuthenticatedCredentials(HttpServletRequest request) {
-        return AccessTokenUserDetailsService.PURPOSE_ACCESS_TOKEN;
+        return PURPOSE_ACCESS_TOKEN;
     }
 }

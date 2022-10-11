@@ -53,6 +53,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(POST, "/employee").anonymous()
                 .antMatchers(OPTIONS, "/login").anonymous()
                 .antMatchers(POST, "/login").anonymous()
+                // .antMatchers(POST, "/details").anonymous()
                 .antMatchers(PUT, "/login").anonymous()
                 .antMatchers(HttpMethod.GET, "/login/verify").anonymous()
 

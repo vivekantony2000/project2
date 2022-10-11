@@ -13,7 +13,7 @@ public interface EmployeeRepository extends Repository<Employee, Integer>{
     Optional<Employee> findByEmpIdAndPassword(Integer empId, String password);
 
     Optional<Employee> findByEmail(String email);
-//
+
 //    Collection<Employee> findAll();
 
     Employee save(Employee employee);

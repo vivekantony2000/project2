@@ -6,8 +6,10 @@
 package com.employee.security;
 
 import com.employee.security.util.InvalidTokenException;
+
 import com.employee.security.util.TokenExpiredException;
 import com.employee.security.util.TokenGenerator;
+import com.employee.security.util.TokenGenerator.Status;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +36,7 @@ public class AccessTokenUserDetailsService implements AuthenticationUserDetailsS
             throw new UsernameNotFoundException("Invalid credentials");
         }
 
-        final TokenGenerator.Status status;
+        final Status status;
         try {
             status = tokenGenerator.verify(PURPOSE_ACCESS_TOKEN, token.getPrincipal().toString());
         } catch (InvalidTokenException e) {
